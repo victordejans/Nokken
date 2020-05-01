@@ -1,0 +1,11 @@
+Gegevens : De te ontwerpen nok moet volgende heffing kunnen realiseren :
+
+van 0° tot 60° : +20 mm
+van 60° tot 120° : +15 mm
+van 150° tot 290° : -35 mm
+De equivalente massa en dempingsconstante van de volger (en bijhorende onderdelen) worden respectievelijk geschat op 20 kg en 0.054, terwijl het mechanisme volgende statische krachten moet uitoefenen:
+
+van 60° tot 110° : een lineair toenemende druk-kracht van 0 N tot 150 N
+van 110° tot 160° : een konstante druk-kracht van 250 N
+van 160° tot 250° : een konstante trek-kracht van 230 N
+De gevraagde cyclustijd voor de bewerking uitgevoerd door de volger is 1 sec.
