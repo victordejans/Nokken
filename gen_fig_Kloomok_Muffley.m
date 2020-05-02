@@ -10,13 +10,13 @@ clear; close all; clc
 
 
 %% input
-R0 = 50; %pitch radius in mm
+R0 = 220; %pitch radius in mm
 start_lift = 0; %start lift in mm
-end_lift = 30; %end lift in mm
-cycloidtype = 6; %type of cycloide
+end_lift = 20; %end lift in mm
+cycloidtype = 1; %type of cycloide
 
 %% calculations
-beta_vec = 5:300;
+beta_vec = 0:60;
 rho_min = 0*beta_vec;
 
 L0 = start_lift;
