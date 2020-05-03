@@ -8,7 +8,7 @@ clear
 theta=(1:1:360)';
 S = hefwet;
 Ffunc = external_forces;
-Fv0 = 00*ones(size(theta));
+Fv0 = 200*ones(size(theta));
 m = 20;
 omega = 1;
 acc = acceleration(S);
