@@ -25,8 +25,8 @@ end
 %some values calculated by this matlab code are smaller than zero with a very small absolute value. these are of course incorrect. we correct them to zero
 S = abs(S);
 
-figure
-plot(theta,S)
+% figure
+% plot(theta,S)
 
 
 end

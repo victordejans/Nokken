@@ -8,7 +8,7 @@ clear
 theta=(1:1:360)';
 S = hefwet;
 Ffunc = external_forces;
-Fv0 = 100.2903*ones(size(theta));
+Fv0 = 00*ones(size(theta));
 m = 20;
 omega = 1;
 acc = acceleration(S);
@@ -17,12 +17,17 @@ acc = acceleration(S);
 %calculating the function that needs to be maximized
 F = (-Ffunc-Fv0-m*omega^2*acc)./S;
 
+for i = 1;t
+    if F(i) < 0
+        F(i) = 0
+    end
+end
 
 
 
 k = max(F);
 
-figure
+
 plot(theta,F)
 
 

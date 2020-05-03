@@ -121,6 +121,8 @@ if abs(handles.out.exc) > handles.out.bcr + handles.out.rof
   errordlg('|excentricity| must be lower than (base circle radius + radius of follower. Cannot compute radius of curvature.', 'Error')
 else
   pressure_angle = atan((handles.out.V-handles.out.exc)./(sqrt((handles.out.bcr+handles.out.rof)^2-handles.out.exc^2)+handles.out.S));
+  handles.out.exc
+  handles.out.V
 end
 
 function [roc_pitch, roc_cam] = calcRadiusOfCurvature(handles)

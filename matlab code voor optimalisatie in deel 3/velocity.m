@@ -9,8 +9,7 @@ for i = 1:t
     vel(i) = S(i+1)-S(i);
 end
 
-figure
-
-plot(theta,vel)
+% figure
+% plot(theta,vel)
 
 end

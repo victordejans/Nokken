@@ -12,6 +12,7 @@ for i = 1:t
     acc(i) = vel(i+1)-vel(i);
 end
 
+% figure
 % plot(theta,acc)
 
 end
