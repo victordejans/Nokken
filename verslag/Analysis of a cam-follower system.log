@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.2.25)  9 MAY 2020 00:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.2.25)  9 MAY 2020 20:05
 entering extended mode
 **"./Analysis of a cam-follower system.tex"
 ("Analysis of a cam-follower system.tex"
@@ -1129,19 +1129,18 @@ stry (CN)
 \mhchem@option@minustextsidebearingleft=\dimen186
 \mhchem@option@minustextsidebearingright=\dimen187
 )
+("C:\Program Files\MiKTeX 2.9\tex\latex\caption\subcaption.sty"
+Package: subcaption 2016/05/22 v1.1-161 Sub-captions (AR)
+\c@subfigure=\count304
+\c@subtable=\count305
+)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\subfig\subfig.sty"
 Package: subfig 2005/06/28 ver: 1.3 subfig package
-\c@KVtest=\count304
+\c@KVtest=\count306
 \sf@farskip=\skip77
 \sf@captopadj=\dimen188
 \sf@capskip=\skip78
 \sf@nearskip=\skip79
-\c@subfigure=\count305
-\c@subfigure@save=\count306
-\c@lofdepth=\count307
-\c@subtable=\count308
-\c@subtable@save=\count309
-\c@lotdepth=\count310
 \sf@top=\skip80
 \sf@bottom=\skip81
 )
@@ -1152,7 +1151,7 @@ Package: esdiff
 Package: footmisc 2011/06/06 v5.5b a miscellany of footnote facilities
 \FN@temptoken=\toks31
 \footnotemargin=\dimen189
-\c@pp@next@reset=\count311
+\c@pp@next@reset=\count307
 Package footmisc Info: Declaring symbol style bringhurst on input line 855.
 Package footmisc Info: Declaring symbol style chicago on input line 863.
 Package footmisc Info: Declaring symbol style wiley on input line 872.
@@ -1162,37 +1161,55 @@ Package footmisc Info: Declaring symbol style lamport* on input line 903.
 Package footmisc Info: Declaring symbol style lamport*-robust on input line 924
 .
 )
-("Analysis of a cam-follower system.aux")
+("C:\Program Files\MiKTeX 2.9\tex\latex\was\gensymb.sty"
+Package: gensymb 2003/07/02 v1.0 (WaS)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyphenat\hyphenat.sty"
+Package: hyphenat 2009/09/02 v2.3c hyphenation utilities
+
+
+Package hyphenat Warning: *******************************
+(hyphenat)                * You have used the htt option.
+(hyphenat)                * You are likely to get many Font Warning messages.
+(hyphenat)                * These can usually be ignored.
+(hyphenat)                *******************************.
+
+\langwohyphens=\language77
+LaTeX Info: Redefining \_ on input line 43.
+) ("Analysis of a cam-follower system.aux"
+
+LaTeX Warning: Label `tab:nomogram' multiply defined.
+
+)
 \openout1 = `"Analysis of a cam-follower system.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
 \AtBeginShipoutBox=\box79
-Package hyperref Info: Link coloring OFF on input line 28.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
+Package hyperref Info: Link coloring OFF on input line 32.
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count312
+\c@section@level=\count308
 )
-LaTeX Info: Redefining \ref on input line 28.
-LaTeX Info: Redefining \pageref on input line 28.
-LaTeX Info: Redefining \nameref on input line 28.
+LaTeX Info: Redefining \ref on input line 32.
+LaTeX Info: Redefining \pageref on input line 32.
+LaTeX Info: Redefining \nameref on input line 32.
 
 ("Analysis of a cam-follower system.out")
 ("Analysis of a cam-follower system.out")
@@ -1202,16 +1219,16 @@ LaTeX Info: Redefining \nameref on input line 28.
 
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count313
+\scratchcounter=\count309
 \scratchdimen=\dimen190
 \scratchbox=\box80
-\nofMPsegments=\count314
-\nofMParguments=\count315
+\nofMPsegments=\count310
+\nofMParguments=\count311
 \everyMPshowfont=\toks32
-\MPscratchCnt=\count316
+\MPscratchCnt=\count312
 \MPscratchDim=\dimen191
-\MPnumerator=\count317
-\makeMPintoPDFobject=\count318
+\MPnumerator=\count313
+\makeMPintoPDFobject=\count314
 \everyMPtoPDFconversion=\toks33
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -1310,40 +1327,155 @@ File: siunitx-abbreviations.cfg 2017/11/26 v2.7k siunitx: Abbreviated units
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
+
+
+! Package subcaption Error: This package can't be used in cooperation
+(subcaption)                with the subfig package.
+
+See the subcaption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.32 \begin{document}
+                     
+If you do not understand this error, please take a closer look
+at the documentation of the `subcaption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
 Package caption Info: End \AtBeginDocument code.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\pdflscape.sty"
-Package: pdflscape 2016/05/14 v0.11 Display of landscape pages in PDF (HO)
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\lscape.sty"
-Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
-)
-Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
-)
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\pdflscape.sty")
 .................................................
 . chemgreek info: "mapping-activated"
 . 
-. Activating mapping `default' on line 28.
+. Activating mapping `default' on line 32.
 .................................................
-\c__siunitx_mathsf_int=\count319
-LaTeX Font Info:    Try loading font information for U+msa on input line 28.
 
+! Undefined control sequence.
+<argument> \sf@counterlist 
+                           
+l.32 \begin{document}
+                     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+LaTeX Info: Redefining \celsius on input line 32.
+Package gensymb Info: Faking symbols for \degree and \celsius on input line 32.
+
+
+Package gensymb Warning: Not defining \perthousand.
+
+LaTeX Info: Redefining \ohm on input line 32.
+Package gensymb Info: Using \Omega for \ohm on input line 32.
+
+Package gensymb Warning: Not defining \micro.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/b/n' undefined
+(Font)              using `OT1/cmtt/m/n' instead on input line 32.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/b/it' undefined
+(Font)              using `OT1/cmtt/b/n' instead on input line 32.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/b/sl' undefined
+(Font)              using `OT1/cmtt/b/n' instead on input line 32.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/b/sc' undefined
+(Font)              using `OT1/cmtt/b/n' instead on input line 32.
+
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 32.
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/it' in size <10> not available
+(Font)              Font shape `OT1/cmtt/m/it' tried instead on input line 32.
+
+LaTeX Font Warning: Font shape `OT1/cmtt/bx/sl' undefined
+(Font)              using `OT1/cmtt/bx/n' instead on input line 32.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/bx/sc' undefined
+(Font)              using `OT1/cmtt/bx/n' instead on input line 32.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/sb/n' undefined
+(Font)              using `OT1/cmtt/m/n' instead on input line 32.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/sb/it' undefined
+(Font)              using `OT1/cmtt/sb/n' instead on input line 32.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/sb/sl' undefined
+(Font)              using `OT1/cmtt/sb/n' instead on input line 32.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/sb/sc' undefined
+(Font)              using `OT1/cmtt/sb/n' instead on input line 32.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/c/n' undefined
+(Font)              using `OT1/cmtt/m/n' instead on input line 32.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/c/it' undefined
+(Font)              using `OT1/cmtt/c/n' instead on input line 32.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/c/sl' undefined
+(Font)              using `OT1/cmtt/c/n' instead on input line 32.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/c/sc' undefined
+(Font)              using `OT1/cmtt/c/n' instead on input line 32.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/l/n' undefined
+(Font)              using `OT1/cmtt/m/n' instead on input line 32.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/l/it' undefined
+(Font)              using `OT1/cmtt/l/n' instead on input line 32.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/l/sl' undefined
+(Font)              using `OT1/cmtt/l/n' instead on input line 32.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/l/sc' undefined
+(Font)              using `OT1/cmtt/l/n' instead on input line 32.
+
+LaTeX Font Info:    Font shape `OT1/cmtt/m/ui' in size <10> not available
+(Font)              Font shape `OT1/cmtt/m/it' tried instead on input line 32.
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/ui' in size <10> not available
+(Font)              Font shape `OT1/cmtt/m/it' tried instead on input line 32.
+
+LaTeX Font Warning: Font shape `OT1/cmtt/m/In' undefined
+(Font)              using `OT1/cmtt/m/n' instead on input line 32.
+
+\c__siunitx_mathsf_int=\count315
+LaTeX Font Info:    Try loading font information for U+msa on input line 32.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 28.
+LaTeX Font Info:    Try loading font information for U+msb on input line 32.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-\c__siunitx_mathtt_int=\count320
+\c__siunitx_mathtt_int=\count316
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--36
+Underfull \hbox (badness 10000) in paragraph at lines 38--40
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 55--55
+Underfull \hbox (badness 10000) in paragraph at lines 59--59
 
  []
 
@@ -1354,7 +1486,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.55 ...n performed by the follower is 1 second.}}
+l.59 ...n performed by the follower is 1 second.}}
                                                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1367,19 +1499,19 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.55 ...n performed by the follower is 1 second.}}
+l.59 ...n performed by the follower is 1 second.}}
                                                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 55--55
+Underfull \hbox (badness 10000) in paragraph at lines 59--59
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 55--55
+Underfull \hbox (badness 10000) in paragraph at lines 59--59
 
  []
 
@@ -1390,20 +1522,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.55 ...n performed by the follower is 1 second.}}
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! LaTeX Error: Command \textdegree unavailable in encoding OT1.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.55 ...n performed by the follower is 1 second.}}
+l.59 ...n performed by the follower is 1 second.}}
                                                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1416,24 +1535,37 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.55 ...n performed by the follower is 1 second.}}
+l.59 ...n performed by the follower is 1 second.}}
                                                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 55--55
+! LaTeX Error: Command \textdegree unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.59 ...n performed by the follower is 1 second.}}
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 59--59
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 55--58
+Underfull \hbox (badness 10000) in paragraph at lines 59--62
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 55--58
+Underfull \hbox (badness 10000) in paragraph at lines 59--62
 
  []
 
@@ -1444,88 +1576,152 @@ Underfull \hbox (badness 10000) in paragraph at lines 55--58
 \tf@toc=\write4
 \openout4 = `"Analysis of a cam-follower system.toc"'.
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 74.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 78.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 74.
-<hefwet.png, id=51, 561.89925pt x 536.60475pt>
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 78.
+<hefwet.png, id=66, 561.89925pt x 536.60475pt>
 File: hefwet.png Graphic file (type png)
 <use hefwet.png>
-Package pdftex.def Info: hefwet.png  used on input line 81.
-(pdftex.def)             Requested size: 269.09958pt x 256.99419pt.
- [2
-
- <./hefwet.png>]
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 93.
+Package pdftex.def Info: hefwet.png  used on input line 85.
+(pdftex.def)             Requested size: 241.49895pt x 230.62909pt.
 
 
-! LaTeX Error: Command \textdegree unavailable in encoding OT1.
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-See the LaTeX manual or LaTeX Companion for explanation.
+
+LaTeX Warning: Reference `tab:motionlaw' on page 2 undefined on input line 107.
+
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[2
+
+]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 131.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 131.
+
+[3 <./hefwet.png>]
+
+LaTeX Warning: File `nomogram1.png' not found on input line 147.
+
+
+! Package pdftex.def Error: File `nomogram1.png' not found: using draft setting
+.
+
+See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.93 ...S is perfectly continuous in \(\theta=60°
-                                                  \).
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
+l.147 ...phics[width=.66\textwidth]{nomogram1.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
-[3]
-<powerplot.png, id=81, 1445.4pt x 704.6325pt>
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 165.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 165.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 165.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 165.
+
+[4]
+<preszonder.png, id=102, 564.9105pt x 538.4115pt>
+File: preszonder.png Graphic file (type png)
+<use preszonder.png>
+Package pdftex.def Info: preszonder.png  used on input line 185.
+(pdftex.def)             Requested size: 241.49895pt x 230.16508pt.
+<radzonder.png, id=103, 563.10374pt x 537.80925pt>
+File: radzonder.png Graphic file (type png)
+<use radzonder.png>
+Package pdftex.def Info: radzonder.png  used on input line 192.
+(pdftex.def)             Requested size: 241.49895pt x 230.6462pt.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 211.
+
+[5] [6 <./preszonder.png> <./radzonder.png>]
+<powerplot.png, id=129, 1445.4pt x 704.6325pt>
 File: powerplot.png Graphic file (type png)
 <use powerplot.png>
-Package pdftex.def Info: powerplot.png  used on input line 159.
+Package pdftex.def Info: powerplot.png  used on input line 263.
 (pdftex.def)             Requested size: 345.0pt x 168.17984pt.
-<diffpower.png, id=82, 1445.4pt x 704.6325pt>
+<diffpower.png, id=130, 1445.4pt x 704.6325pt>
 File: diffpower.png Graphic file (type png)
 <use diffpower.png>
-Package pdftex.def Info: diffpower.png  used on input line 167.
+Package pdftex.def Info: diffpower.png  used on input line 271.
 (pdftex.def)             Requested size: 345.0pt x 168.17984pt.
- ("Analysis of a cam-follower system.bbl" [4 <./powerplot.png (PNG copy)>])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 179.
 
-[5 <./diffpower.png (PNG copy)>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 179.
+("Analysis of a cam-follower system.bbl" [7 <./powerplot.png (PNG copy)>])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 283.
+
+[8 <./diffpower.png (PNG copy)>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 283.
  ("Analysis of a cam-follower system.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 179.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 179.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 283.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 283.
 Package rerunfilecheck Info: File `"Analysis of a cam-follower system".out' has
  not changed.
-(rerunfilecheck)             Checksum: DA59B068796127C038D5337C3AB43A12;468.
+(rerunfilecheck)             Checksum: 59FD3DBC827C29CBB91865201E7964E4;747.
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 179.
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 283.
  ) 
 Here is how much of TeX's memory you used:
- 20948 strings out of 493301
- 396256 string characters out of 3138717
- 479410 words of memory out of 3000000
- 24264 multiletter control sequences out of 15000+200000
- 541302 words of font info for 66 fonts, out of 3000000 for 9000
+ 21093 strings out of 493301
+ 398429 string characters out of 3138717
+ 486290 words of memory out of 3000000
+ 24383 multiletter control sequences out of 15000+200000
+ 541809 words of font info for 69 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 36i,19n,39p,10407b,852s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,19n,39p,10407b,850s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKT
 eX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/f
-onts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
-1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.
-pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/P
-rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program F
-iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on "Analysis of a cam-follower system.pdf" (5 pages, 300819 byte
+onts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10
+.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/
+Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program F
+iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmtt10.pfb>
+Output written on "Analysis of a cam-follower system.pdf" (8 pages, 436768 byte
 s).
 PDF statistics:
- 142 PDF objects out of 1000 (max. 8388607)
- 25 named destinations out of 1000 (max. 500000)
- 72 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 211 PDF objects out of 1000 (max. 8388607)
+ 38 named destinations out of 1000 (max. 500000)
+ 106 words of extra memory for PDF output out of 10000 (max. 10000000)
 

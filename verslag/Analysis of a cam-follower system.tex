@@ -14,10 +14,14 @@
 \usepackage{fixltx2e}
 \usepackage[version=4]{mhchem}
 \usepackage{url}
+\usepackage{subcaption}
 \usepackage{subfig}
+
 \usepackage[justification=centering]{caption}
 \usepackage[thinc]{esdiff}
 \usepackage[bottom]{footmisc}
+\usepackage{gensymb}
+\usepackage[htt]{hyphenat}
 
 
 \date{\today}
@@ -78,8 +82,8 @@ When choosing the segments, one must take two thing into account:
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=.78\textwidth]{hefwet.png}
-	\caption{The motion law \(S(\theta\) and its first and second derivatives in function of the cam angle \(\theta\). These plots were created with \texttt{matcam.m}}
+	\includegraphics[width=.7\textwidth]{hefwet.png}
+	\caption{The motion law \(S(\theta)\) and its first and second derivatives in function of the cam angle \(\theta\). These plots were created with \texttt{matcam.m}}
 	\label{fig:hefwet}
 	
 \end{figure}
@@ -90,7 +94,7 @@ The chosen segment sequence for this system consists of a C1, a C2 and a C6 segm
 
 \item The first segment is a C1 half-cycloid which rises from 0 to +20 millimeters between 0 and 60 degrees. 
 
-\item The second one is a C2 half-cycloid that rises from +20 to +35 millimeters between 60 and 105 degrees. By choosing to end this segment at 105 degrees, the first derivative of S is perfectly continuous in \(\theta=60°\).
+\item The second one is a C2 half-cycloid that rises from +20 to +35 millimeters between 60 and 105 degrees. By choosing to end this segment at 105 degrees, the first derivative of S is perfectly continuous in \(\theta=60\degree\).
 
 \item After this second half-cycloid comes a dwell at +35 millimeters between 105 and 150 degrees. This dwell forms a perfectly continuous funtion with the C2 half-cycloid before it and the decreasing C6 cycloid behind it.
 
@@ -100,13 +104,113 @@ The chosen segment sequence for this system consists of a C1, a C2 and a C6 segm
 
 \end{itemize}
 
-A graphical representation of this motion law and of its first and second derivatives is shown in figure~\ref{fig:hefwet}. On this plot one can see that the velocity is perfectly continuous and that the absolute value of the acceleration does not exceed 0,025~\(\si{mm/degree^2}\).
+A summary of these segments is given in table~\ref{tab:motionlaw}. A graphical representation of this motion law and of its first and second derivatives is shown in figure~\ref{fig:hefwet}. On this plot one can see that the velocity is perfectly continuous and that the absolute value of the acceleration does not exceed \(0,025~\si{mm/degree^2}\).
 
-
-
+\begin{table}[h]
+	\centering
+	\resizebox{\textwidth}{!}{\begin{tabular}{c|cccc}
+		Segment & \(\beta_{start}\) (degrees) & \(\beta_{end}\) (degrees) & Cycloid type & Relative displacement (mm) \\
+		\hline
+		1 & 0 & 60 & C1 & +20 \\
+		2 & 60 & 105 & C2 & +15\\
+		3 & 105 & 150 & dwell & 0\\
+		4 & 150 & 290 & C6 & -35\\
+		5 & 290 & 360 & dwell & 0\\
+	\end{tabular}}
+	\caption{Results of the use of the Kloomok and Muffley diagram for each segment with a lift \(L\neq0\).}
+	\label{tab:nomogram}
+\end{table}
 
 \section{Determining the geometry of the follower}
 \label{sec:2}
+
+Some geometric characteristics of the follower must be chosen wisely to optimize the cam's operation. The choice of these parameters is the subject of this section.
+
+The radiuses of the base circle of the cam and of the follower's roller must be chosen so that there is no undercutting and that the pressure angle never exceeds 30 degrees. Then the excentricity can help to make the maximal pressure angle even smaller.
+
+\subsection{Sum of the radiuses of base circle and follower, \(R_0\)}
+
+First, the pitch circle radius \(R_0\) is calculated. This is the sum of the base circle radius \(R_{base}\) and the follower radius \(R_r\), the two variables that need to be found in this subsection. 
+
+This can be done by looking at the pressure angle. This is the angle between the direction in which the follower translates and the normal on the cam's surface. It gives an indication of how the transmitted force between cam and follower is converted. When the pressure angle is small, most of this force will be used for the follower's motion. When the pressure angle is more right (\(\approx90\degree\), most of it will be converted in frictional forces. The latter case must of course be avoided. A good rule of thumb states that the pressure angle must never exceed 30 degrees:
+
+\begin{equation}
+	\alpha_{max} < 30 \degree 
+\end{equation}
+
+The Kloomok and Muffley nomogram on slide 33 of chapter 8 in the manual~\cite{cursus} gives the relation between the pressure angle \(\alpha\) and the ratio of the displacement to the pitch circle radius \(L/R_0\). For each segment of the motion law, a line is drawn in this nomogram between the point of \(\alpha=30 \degree\) (the maximal allowed value for \(\alpha\)) and the point of the \(\beta\) which represents the size in degrees of the considered segment. The intersection of this drawn line and the horizontal axis in the nomogram gives the \(L/R_0\) ratio for that cycloidal segment. An example of how to use the nomogram is given in figure~\ref{fig:nomogram1}.
+
+The results for each segment are listed in table~\ref{tab:nomogram}. Because the displacement \(L\) is known for each segment, the pitch circle radius \(R_0\) can be calculated for each segment. The highest value for \(R_0\) is 60 millimeters. By choosing this value or higher, the pressure angle will surely not exceed 30 degrees. This will still be optimized by choosing an excentricity, so 60 millimeters is good enough for now.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.66\textwidth]{nomogram1.png}
+	\caption{Nomogram of Kloomok and Muffley used to determine the pitch circle radius \(R_0\).}
+	\label{fig:nomogram1}
+\end{figure}
+
+\begin{table}
+	\centering
+	\begin{tabular}{c|cccc}
+		Segment & \(\beta\) (degrees) & \(L\) (mm) & \(L/R_0\) & \(R_0\) (mm) \\
+		\hline
+		1 & 60 & 20 & 0,33 & 60 \\
+		2 & 45 & 15 & 0,25 & 60\\
+		4 & 35 & 35 & 0,90 & 39\\
+	\end{tabular}
+	\caption{Results of the use of the Kloomok and Muffley diagram for each segment with a lift \(L\neq0\).}
+	\label{tab:nomogram}
+\end{table}
+
+\subsection{Radius of the base circle, \(R_{base}\) and radius of the follower, \(R_r\)}
+
+The conclusion of the previous subsection was that \(R_{base}+R_r=60~mm\). Now the base circle radius and the follower radius must be determined seperately. This can be done by stating that to avoid undercutting, the radius of curvature of the cam's surface must always be greater than the follower radius:
+
+\begin{equation}
+	\rho _{min} > R_r
+\end{equation}
+
+To calculate this minimal radius of curvature, another nomogram of Kloomok and Muffley is used. It is generated by the MATLAB function \texttt{gen\_fig\_Kloomok\_Muffley.m}. This program makes plots of the \(\rho_{min}\) of each segment given the pitch radius \(R_0\), the lift and the cycloid type. These plots are listed in figure~\ref{fig:nomogram2}.
+
+From these plots, one can see that the smallest value for \(\rho_{min}\) is 60 millimeters, which means that the follower radius must be smaller than 60 millimeters. This is just an upper boundary, so it can be a lot smaller than that. We have chosen to make \textbf{\(R_r=10~mm\)}, so that the base circle radius is \textbf{\(R_{base}=50~mm\)}. It is desirable that the follower radius is smaller than the base circle radius to make the motion smoother.
+
+Plots of the pressure angle and the radius of curvature with these radiuses can be seen in figure~\ref{fig:geozonder}.
+
+\begin{figure}
+	\centering
+	
+	\begin{subfigure}{.7\textwidth}
+		\centering
+		\label{alo}
+		\includegraphics[width=\textwidth]{preszonder.png}
+		\caption{Pressure angle in function of cam angle. For smooth motion, this angle must never exceed 30 degrees.}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{.7\textwidth}
+		\centering
+		\label{allo}
+		\includegraphics[width=\textwidth]{radzonder.png}
+		\caption{Radius of curvature in function of cam angle. To avoid undercutting, the follower radius \(R_r\) must always be smaller than the pitch radius of curvature (blue line).}
+	\end{subfigure}
+	
+	\caption{Pressure angle \(\alpha\) and radius of curvature \(\rho\) in function of cam angle for the case of a centric follower with \(R_r=10~mm\) and \(R_{base}=50~mm\).}
+	\label{fig:geozonder}
+	
+\end{figure}
+
+\begin{figure}
+	\centering
+	
+	
+	
+	
+	\caption{Nomograms of Kloomok and Muffley for determining the \(\rho_min\)}
+	\label{fig:nomogram2}
+\end{figure}
+
+\subsection{Excentricity \(e\)}
+
+
 
 \section{Verifying the rigid body forces}
 

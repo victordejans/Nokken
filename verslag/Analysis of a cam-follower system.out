@@ -1,7 +1,10 @@
 \BOOKMARK [1][-]{section.1}{Defining the motion law}{}% 1
 \BOOKMARK [1][-]{section.2}{Determining the geometry of the follower}{}% 2
-\BOOKMARK [1][-]{section.3}{Verifying the rigid body forces}{}% 3
-\BOOKMARK [2][-]{subsection.3.1}{Sizing the spring}{section.3}% 4
-\BOOKMARK [2][-]{subsection.3.2}{Instantaneous power}{section.3}% 5
-\BOOKMARK [2][-]{subsection.3.3}{Designing a flywheel}{section.3}% 6
-\BOOKMARK [1][-]{section.4}{Dynamics of the follower}{}% 7
+\BOOKMARK [2][-]{subsection.2.1}{Sum of the radiuses of base circle and follower, R0}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Radius of the base circle, Rbase and radius of the follower, Rr}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Excentricity e}{section.2}% 5
+\BOOKMARK [1][-]{section.3}{Verifying the rigid body forces}{}% 6
+\BOOKMARK [2][-]{subsection.3.1}{Sizing the spring}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.2}{Instantaneous power}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.3}{Designing a flywheel}{section.3}% 9
+\BOOKMARK [1][-]{section.4}{Dynamics of the follower}{}% 10
