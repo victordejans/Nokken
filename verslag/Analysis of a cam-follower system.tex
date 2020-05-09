@@ -16,12 +16,13 @@
 \usepackage{url}
 \usepackage{subcaption}
 \usepackage{subfig}
-
 \usepackage[justification=centering]{caption}
 \usepackage[thinc]{esdiff}
 \usepackage[bottom]{footmisc}
 \usepackage{gensymb}
 \usepackage[htt]{hyphenat}
+\usepackage{float}
+\usepackage{bm}
 
 
 \date{\today}
@@ -71,16 +72,16 @@ The calculations for this assignment are made using MATLAB. The used code is att
 
 \section{Defining the motion law}
 
-The motion law \(S(\theta)\) gives the displacement \(S(\theta)\) for each angle. The MATLAB function \texttt{matcam.m} was used to construct this motion law which is a series of cycloidal and semi-cycloidal segments as defined in the manual \cite{cursus} in chapter 7 on slide 44.
+The motion law gives the displacement \(S(\theta)\) for each angle. The MATLAB function \texttt{matcam.m} was used to construct this motion law, which is a series of cycloidal and semi-cycloidal segments as defined in the manual \cite{cursus} in chapter 7 on slide 44.
 
-When choosing the segments, one must take two thing into account:
+When choosing the segments, one must take two things into account:
 \begin{itemize}
 	\item The velocity function \(S'(\theta)\) must be as continuous as possible.
 	\item The acceleration \(S''(\theta)\) must be as low as possible.
 \end{itemize}
 
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=.7\textwidth]{hefwet.png}
 	\caption{The motion law \(S(\theta)\) and its first and second derivatives in function of the cam angle \(\theta\). These plots were created with \texttt{matcam.m}}
@@ -118,7 +119,7 @@ A summary of these segments is given in table~\ref{tab:motionlaw}. A graphical r
 		5 & 290 & 360 & dwell & 0\\
 	\end{tabular}}
 	\caption{Results of the use of the Kloomok and Muffley diagram for each segment with a lift \(L\neq0\).}
-	\label{tab:nomogram}
+	\label{tab:motionlaw}
 \end{table}
 
 \section{Determining the geometry of the follower}
@@ -181,16 +182,16 @@ Plots of the pressure angle and the radius of curvature with these radiuses can 
 	
 	\begin{subfigure}{.7\textwidth}
 		\centering
-		\label{alo}
 		\includegraphics[width=\textwidth]{preszonder.png}
 		\caption{Pressure angle in function of cam angle. For smooth motion, this angle must never exceed 30 degrees.}
+		\label{fig:preszonder}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}{.7\textwidth}
 		\centering
-		\label{allo}
 		\includegraphics[width=\textwidth]{radzonder.png}
 		\caption{Radius of curvature in function of cam angle. To avoid undercutting, the follower radius \(R_r\) must always be smaller than the pitch radius of curvature (blue line).}
+		\label{fig:radzonder}
 	\end{subfigure}
 	
 	\caption{Pressure angle \(\alpha\) and radius of curvature \(\rho\) in function of cam angle for the case of a centric follower with \(R_r=10~mm\) and \(R_{base}=50~mm\).}
@@ -201,16 +202,42 @@ Plots of the pressure angle and the radius of curvature with these radiuses can 
 \begin{figure}
 	\centering
 	
+	\includegraphics[width=\textwidth]{nomogram2.png}
 	
 	
-	
-	\caption{Nomograms of Kloomok and Muffley for determining the \(\rho_min\)}
+	\caption{Nomograms of Kloomok and Muffley for determining the \(\rho_{min}\).}
 	\label{fig:nomogram2}
 \end{figure}
 
 \subsection{Excentricity \(e\)}
 
+In the previous subsections, the follower was assumed to be in line with the center of the cam. The follower can however also be placed excentrically relative to the cam. This can help to reduce the pressure angle.
 
+When choosing an excentricity \(e\) different from zero, the curve of the pressure angle in function of the cam angle, which is plotted in figure~\ref{fig:preszonder}, moves up or down. The intention is to find an excentricity so that the maximal value and the minimal value of the pressure angle lie symmetrically relative to the horizontal axis. In that case, the maximal value for \(|\alpha|\) is minimized.
+
+Finding the ideal excentricity was done by trial and error in \texttt{matcam.m}. For \textbf{\(e=4,5~mm\)} the pressure angle is optimal. It can be seen in figure~\ref{fig:presmet}. The new radius of curvature can be seen in figure~\ref{fig:radmet}.
+
+\begin{figure}
+	\centering
+	
+	\begin{subfigure}{.7\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{presmet.png}
+		\caption{Pressure angle in function of cam angle. For smooth motion, this angle must never exceed 30 degrees.}
+		\label{fig:presmet}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{.7\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{radmet.png}
+		\caption{Radius of curvature in function of cam angle. To avoid undercutting, the follower radius \(R_r\) must always be smaller than the pitch radius of curvature (blue line).}
+		\label{fig:radmet}
+	\end{subfigure}
+	
+	\caption{Pressure angle \(\alpha\) and radius of curvature \(\rho\) in function of cam angle for the case of an excentric follower with \(R_r=10~mm\), \(R_{base}=50~mm\) and \(e=4,5~mm\).}
+	\label{fig:geomet}
+	
+\end{figure}
 
 \section{Verifying the rigid body forces}
 

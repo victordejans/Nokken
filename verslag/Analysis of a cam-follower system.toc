@@ -4,8 +4,8 @@
 \contentsline {subsection}{\numberline {2.1}Sum of the radiuses of base circle and follower, \(R_0\)}{3}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}Radius of the base circle, \(R_{base}\) and radius of the follower, \(R_r\)}{5}{subsection.2.2}
 \contentsline {subsection}{\numberline {2.3}Excentricity \(e\)}{5}{subsection.2.3}
-\contentsline {section}{\numberline {3}Verifying the rigid body forces}{5}{section.3}
-\contentsline {subsection}{\numberline {3.1}Sizing the spring}{5}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Instantaneous power}{5}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Designing a flywheel}{7}{subsection.3.3}
-\contentsline {section}{\numberline {4}Dynamics of the follower}{7}{section.4}
+\contentsline {section}{\numberline {3}Verifying the rigid body forces}{9}{section.3}
+\contentsline {subsection}{\numberline {3.1}Sizing the spring}{9}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Instantaneous power}{9}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Designing a flywheel}{9}{subsection.3.3}
+\contentsline {section}{\numberline {4}Dynamics of the follower}{9}{section.4}
