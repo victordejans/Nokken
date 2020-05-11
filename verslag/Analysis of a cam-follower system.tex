@@ -23,6 +23,7 @@
 \usepackage[htt]{hyphenat}
 \usepackage{float}
 \usepackage{bm}
+\usepackage{a4wide}
 
 
 \date{\today}
@@ -31,6 +32,7 @@
 
 
 \begin{document}
+	
 
 \maketitle
 
@@ -244,6 +246,7 @@ Finding the ideal excentricity was done by trial and error in \texttt{matcam.m}.
 \subsection{Sizing the spring}
 
 \subsection{Instantaneous power}
+\label{sec:power}
 
 The power to drive the cam is given for a non-excentric follower \cite{vermogen}:
 
@@ -283,12 +286,14 @@ And by using equation~\ref{eq:verm_exc2} in equation~\ref{eq:verm_exc1}, the pow
 	\end{split}
 \end{equation}
 
-The power for both the case without excentricity and the case with excentricity (\(e=4,5~cm\) as determined in section~\ref{sec:2}) is calculated in the MATLAB function \texttt{power.m}. The plots of the powers in function of \(\theta\) can be found in figure~\ref{fig:powerplot}. Figure~\ref{diffpower} shows the difference between the two power plots. This difference is of an order of magnitude of \(10^{-14}\) and is due to the machine precision of MATLAB. The power for the cam with a centric follower is thus equal to the power for the cam with an excentric follower.
+The power for both the case without excentricity and the case with excentricity (\(e=4,5~cm\) as determined in section~\ref{sec:2}) is calculated in the MATLAB function \texttt{power\_cam.m}. The plots of the powers in function of \(\theta\) can be found in figure~\ref{fig:powerplot}. Figure~\ref{diffpower} shows the difference between the two power plots. This difference is of an order of magnitude of \(10^{-14}\) and is due to the machine precision of MATLAB. The power for the cam with a centric follower is thus equal to the power for the cam with an excentric follower.
+
+The horizontal lines in the plots in figure~\ref{fig:powerplot} represent the average value of the instantaneous power. For this system, the mean power is positive which means that the system consumes energy. The mechanism is thus a motor and not a generator. Energy is transmitted from the cam to the follower. It is dissipated in the form of motion of the follower and friction between cam and follower.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{powerplot.png}
-	\caption{The instantaneous power \(P\) to drive the cam in function of \(\theta\) for a centric and an excentric follower.}
+	\caption{The instantaneous power \(P\) and average to drive the cam in function of \(\theta\) for a centric and an excentric follower (in blue). The mean value of the power \(P_{mean}\) (in red).}
 	\label{fig:powerplot}
 	
 \end{figure}
@@ -301,6 +306,22 @@ The power for both the case without excentricity and the case with excentricity 
 \end{figure}
 
 \subsection{Designing a flywheel}
+
+This section treats the dimensioning of a flywheel that will keep speed variations in the cam shaft under control. The calculation of the moment of inertia of the flywheel is described in slides 15 to 22 of chapter 4 in the manual~\cite{cursus}.
+
+First the instantaneous en average torque is calculated. This can easily be done by dividing the instantaneous and average power (that are already calculated in section~\ref{sec:power}) by the nominal angular velocity:
+\begin{subequations}
+\begin{equation}
+	M(\theta)=\frac{P(\theta)}{\omega_{nom}}
+\end{equation}
+\begin{equation}
+	\overline{M}=\frac{\overline{P}}{\omega_{nom}}
+\end{equation}
+\end{subequations}
+
+TELT DIT EFFECTIEF OOK VOOR DE GEMIDDELDE M ?
+
+\subsection{Startup regime of the motor}
 
 \section{Dynamics of the follower}
 
