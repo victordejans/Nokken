@@ -23,113 +23,119 @@ out2 = load('hefwet + geometrie.mat');
  t_1 = (theta_end - theta_start)/omega;
  t_n = t_1/lambda;
  omega_n = 2*pi/t_n;
- k_f = ((omega_n)^2)*m;  %result is a spring constant of about 2*10^6 N/mm
+ k_f = ((omega_n)^2)*m  %result is a spring constant of about 2*10^6 N/mm
  
  
 %% Numerical single rise analysis
 
-%  t_begin=7000;
-%  t_end=18000;
+T = 36000;  % 1 cycle consists of 36000 data points
+
+t_begin = T*theta_end/(2*pi)  % start of the 'vrije respons'
+t_end = T*150/360;  % start of the next rise
+
+tau = out2.theta(1:t_end)/theta_end;
+theta = out2.S(1:t_end)/S_end;
 
 numerator = (2*pi*lambda)^2;
 denominator = [1, 2*zeta*(2*pi*lambda), (2*pi*lambda)^2];
+sys = tf(numerator, denominator);
+gamma = lsim(sys,theta,tau);
 
-% tau = (out2.theta(14001:36000)-out2.theta(14001))/(70*2*pi/360);
-% theta = out2.S(14001:36000)/25;
-% theta0 = 1;
-% theta_dot0 = 0;
- [A,B,C,D] = tf2ss(numerator,denominator);
-% X0 = [1/C(2)*theta_dot0; 1/C(2)*theta0];
-% lsim(A,B,C,D, theta, tau, X0)
-% gamma = lsim(A,B,C,D, theta, tau, X0);
-% 
-% figure('Name','Respons gamma', 'Position', [100, 100, 500, 800])
-% subplot(3,1,1);
-% plot(tau,theta,'LineWidth',1);
-% hold on
-% plot(tau,gamma,'LineWidth',1);
-% title('Excitatie en respons ifv \tau')
-% xlabel('\tau [-]')
-% ylabel('Heffing [-]')
-% axis('tight');
-% legend('\theta','\gamma')
-% subplot(3,1,2);
-% plot(tau,gamma'-theta,'LineWidth',1);
-% axis('tight');
-% title('Verschil respons en excitatie ifv \tau')
-% xlim([0 tau(end)]);
-% xlabel('\tau [-]')
-% ylabel('\gamma-\theta [-]')
-% subplot(3,1,3)
-% plot(tau(t_begin:t_end),theta(t_begin:t_end),'LineWidth',1);
-% hold on
-% plot(tau(t_begin:t_end),gamma(t_begin:t_end),'LineWidth',1);
-% title('Vrije respons: excitatie en respons ifv \tau')
-% xlabel('\tau [-]')
-% ylabel('Heffing [-]')
-% axis('tight');
-% legend('\theta','\gamma')
-% xlim([tau(t_begin) tau(t_end)])
-% saveas(gcf,'SingleriseNumeriek.png');
-% 
-% 
-% %% Benaderende analyse single-rise
-% N=3;
-% Q=(2*pi)^2;
-% A1_ben=Q/(2*pi*lambda).^N;
-% exp_plot=A1_ben.*exp(-zeta*2*pi.*lambda.*(tau-1));
-% 
-% figure('Name','Benaderend', 'Position', [100, 100, 500, 800])
-% subplot(2,1,1)
-% plot(tau(t_begin:t_end),exp_plot(t_begin:t_end),'LineWidth',1);
-% hold on
-% plot(tau(t_begin:t_end),gamma(t_begin:t_end),'LineWidth',1);
-% xlim([1 2])
-% plot(tau,zeros(size(tau)),'LineWidth',1)
-% title('Exponentiële omhullende')
-% xlabel('\tau [-]')
-% ylabel('Heffing [-]')
-% legend('exp_{benaderend}','\gamma','\theta')
-% subplot(2,1,2)
-% plot(tau(t_begin:t_end), exp_plot(t_begin:t_end) - gamma(t_begin:t_end)','LineWidth',1);
-% hold on
-% xlim([1 2])
-% title('Verschil benadering en exacte methode')
-% xlabel('\tau [-]')
-% ylabel('exp_{benaderend} - \gamma [-]')
-% axis('tight');
-% saveas(gcf,'SingleriseBenadering.png');
-% 
-% 
-% %% Multi-rise analyse
-%  lambda_accent = 48.23;
-% 
-% teller = (2*pi*lambda_accent)^2;
-% noemer = [1, 2*zeta*(2*pi*lambda_accent), (2*pi*lambda_accent)^2];
-% sys = tf(teller, noemer);
-% 
-% tau_mr = linspace(0,25,36000*25);
-% theta_mr=repmat(out.S,[1,25])./25;
-% gamma_mr=lsim(sys,theta_mr,tau_mr)';
-% 
-% figure('Name','Respons gamma Multirise','Position', [100, 100, 500, 500])
-% subplot(2,1,1)
-% plot(tau_mr,theta_mr,'LineWidth',1);
-% hold on
-% plot(tau_mr,gamma_mr,'LineWidth',1);
-% axis([20 21 -0.1 1.1])
-% title('Excitatie en respons')
-% xlabel('periode')
-% ylabel('Heffing [-]')
-% legend('\theta','\gamma')
-% subplot(2,1,2)
-% plot(tau_mr,gamma_mr-theta_mr,'LineWidth',1);
-% title('Verschil excitatie en respons')
-% xlabel('periode')
-% ylabel('\gamma-\theta  [-]')
-% axis([20 21 -0.007 0.007])
-% saveas(gcf,'multirise.png');
-% 
+
+figure('Name','Response gamma', 'Position', [100, 100, 500, 800])
+
+subplot(3,1,1);
+plot(tau,theta,'LineWidth',1);
+hold on
+plot(tau,gamma,'LineWidth',1);
+title('Excitation and response as a function of \tau')
+xlabel('\tau [-]')
+ylabel('Dimensionless rise [-]')
+axis('tight');
+legend('\theta','\gamma')
+
+subplot(3,1,2);
+plot(tau,gamma'-theta,'LineWidth',1);
+axis('tight');
+title('Difference of response and excitation')
+xlim([0 tau(end)]);
+xlabel('\tau [-]')
+ylabel('\gamma - \theta [-]')
+
+subplot(3,1,3)
+plot(tau(t_begin:t_end),theta(t_begin:t_end),'LineWidth',1);
+hold on
+plot(tau(t_begin:t_end),gamma(t_begin:t_end),'LineWidth',1);
+title('Free response: excitation and response')
+xlabel('\tau [-]')
+ylabel('Dimensionless rise [-]')
+axis('tight');
+legend('\theta','\gamma')
+xlim([tau(t_begin) tau(t_end)])
+
+saveas(gcf,'SingleriseNumeriek.png');
+
+
+%% Approximate single rise analysis
+
+N=3;
+Q=(2*pi)^2;
+A_1 = Q/(2*pi*lambda).^N;  %approximate A_1
+bounds_exp = A_1*exp(-zeta*2*pi*lambda*(tau-1));
+
+figure('Name','Approximate analysis', 'Position', [100, 100, 500, 800])
+
+subplot(2,1,1)
+plot(tau(t_begin:t_end),bounds_exp(t_begin:t_end),'LineWidth',1);
+hold on
+plot(tau(t_begin:t_end),gamma(t_begin:t_end) - 1,'LineWidth',1);
+xlim([1 1.5])
+plot(tau(t_begin:t_end),theta(t_begin:t_end) - 1,'LineWidth',1)
+title('bounding exponential')
+xlabel('\tau [-]')
+ylabel('Dimensionless rise [-]')
+legend('exp_{bounds}','\gamma','\theta')
+
+subplot(2,1,2)
+plot(tau(t_begin:t_end), bounds_exp(t_begin:t_end) + 1 - gamma(t_begin:t_end)','LineWidth',1);
+hold on
+xlim([1 1.5])
+title('Approximation error')
+xlabel('\tau [-]')
+ylabel('exp_{bounds} - \gamma [-]')
+axis('tight');
+saveas(gcf,'SingleriseBenadering.png');
+
+
+%% Multi rise analysis
+lambda_multi = 1/t_n;  %We need a new lambda for multi rise analysis
+
+numerator_multi = (2*pi*lambda_multi)^2;
+denominator_multi = [1, 2*zeta*(2*pi*lambda_multi), (2*pi*lambda_multi)^2];
+sys_multi = tf(numerator_multi, denominator_multi);
+
+tau_multi = out2.theta/(2*pi);  % normalized time over 1 whole cycle
+theta_multi= out2.S/35;  % normalzsed lift over 1 whole cycle
+gamma_multi= lsim(sys_multi,theta_multi,tau_multi)';
+
+figure('Name','Response gamma Multirise','Position', [100, 100, 500, 500])
+
+subplot(2,1,1)
+plot(tau_multi,theta_multi,'LineWidth',1);
+hold on
+plot(tau_multi,gamma_multi,'LineWidth',1);
+title('Excitation and response')
+xlabel('cycle')
+ylabel('Dimensionless lift [-]')
+legend('\theta','\gamma')
+
+subplot(2,1,2)
+plot(tau_multi,gamma_multi - theta_multi,'LineWidth',1);
+title('Difference of excitation and response')
+xlabel('cycle')
+ylabel('\gamma - \theta  [-]')
+saveas(gcf,'multirise.png');
+
 % 
 % %% vergelijken multirise - singlerise
 %  begin_angle = 140;
