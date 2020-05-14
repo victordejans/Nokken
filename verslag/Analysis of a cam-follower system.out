@@ -5,9 +5,13 @@
 \BOOKMARK [2][-]{subsection.2.3}{Excentricity e}{section.2}% 5
 \BOOKMARK [1][-]{section.3}{Verifying the rigid body forces}{}% 6
 \BOOKMARK [2][-]{subsection.3.1}{Sizing the spring}{section.3}% 7
-\BOOKMARK [2][-]{subsection.3.2}{Instantaneous power}{section.3}% 8
-\BOOKMARK [2][-]{subsection.3.3}{Designing a flywheel}{section.3}% 9
-\BOOKMARK [3][-]{subsubsection.3.3.1}{Exact calculation of the flywheel's dimensions}{subsection.3.3}% 10
-\BOOKMARK [3][-]{subsubsection.3.3.2}{Estimate of the flywheel's dimensions}{subsection.3.3}% 11
-\BOOKMARK [2][-]{subsection.3.4}{Startup of the motor}{section.3}% 12
-\BOOKMARK [1][-]{section.4}{Dynamics of the follower}{}% 13
+\BOOKMARK [3][-]{subsubsection.3.1.1}{Spring with nominal driving velocity}{subsection.3.1}% 8
+\BOOKMARK [3][-]{subsubsection.3.1.2}{Spring with deviating driving velocity}{subsection.3.1}% 9
+\BOOKMARK [2][-]{subsection.3.2}{Instantaneous power}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.3}{Designing a flywheel}{section.3}% 11
+\BOOKMARK [3][-]{subsubsection.3.3.1}{Exact calculation of the flywheel's dimensions}{subsection.3.3}% 12
+\BOOKMARK [3][-]{subsubsection.3.3.2}{Estimate of the flywheel's dimensions}{subsection.3.3}% 13
+\BOOKMARK [2][-]{subsection.3.4}{Startup of the motor}{section.3}% 14
+\BOOKMARK [1][-]{section.4}{Dynamics of the follower}{}% 15
+\BOOKMARK [2][-]{subsection.4.1}{Single-rise analysis}{section.4}% 16
+\BOOKMARK [2][-]{subsection.4.2}{Multi-rise analysis}{section.4}% 17

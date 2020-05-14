@@ -243,7 +243,75 @@ Finding the ideal excentricity was done by trial and error in \texttt{matcam.m}.
 
 \section{Verifying the rigid body forces}
 
+This section treats the calculation and verification of the rigid body forces. This means that the follower is considered to be rigid and that the driving speed is constant and equal to \(\omega_{nom}\).
+
 \subsection{Sizing the spring}
+
+The rigid follower is attached to a spring so that the contact between the cam and the follower can always be assured.
+
+This means that the total normal force exercised by the cam on the follower, must always be positive. Otherwise the cam would apply a traction force on the follower, which is impossible in this configuration. This normal force can be plotted by \texttt{matcam.m}. Figure~\ref{fig:Nzonderveer} shows this plot when no spring is used. 
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.7\textwidth]{Nzonderveer.png}
+	\caption{Normal force between cam and follower in function of the cam angle for a follower without spring.}
+	\label{fig:Nzonderveer}
+\end{figure}
+
+\subsubsection{Spring with nominal driving velocity}
+
+To get the normal force above zero, a spring with a certain spring constant \(k\) and a preload \(F_{v0}\) (a constant force that is exercised by the spring) are applied. On slide 49 of chapter 8 of the manual~\cite{cursus}, the analytical method to find \(k\) and \(F_{v0}\) is given:
+
+\begin{equation}
+	F_{v0} + k\cdot S(\theta) \geq -F_{func}(\theta) -m\cdot\omega^2\cdot\diff[2]{S(\theta)}{\theta}
+\end{equation}
+
+\begin{equation}
+	k = \max_\theta\left(\frac{-F_{func}(\theta)-F_{v0}-m\cdot\omega^2\cdot\diff[2]{S(\theta)}{\theta}}{S(\theta)}\right)
+\end{equation}
+
+where \(F_{func}\) is the external force applied on the cam as defined in the assignment.
+
+Increasing \(k\) or \(F_{v0}\) helps to increase the normal force. However, when the spring constant is too high, the maximal normal force will be too high to guarantee good motion between the cam and the follower. When the preload is too high, a very large spring will be required.
+
+Thus, a compromise must be found between preload and spring constant. By trial and error in \texttt{matcam.m}, we decided to make \(k = 7~N/m\) and \(F_{v0} = 230~N\). The normal force between cam and angle can be seen in figure~\ref{fig:Nmetveer}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.7\textwidth]{Nmetveer.png}
+	\caption{Normal force between cam and follower in function of the cam angle for a follower with spring with \(k=7~N/m\) and \(F_{v0}=230~N\) at nominal velocity.}
+	\label{fig:Nmetveer}
+\end{figure}
+
+\subsubsection{Spring with deviating driving velocity}
+
+The previous subsection treats the design of a spring when the cam's angular velocity is \(\omega_{nom}=60~degrees/s\). In this subsection, the velocity is doubled, so 
+
+\begin{equation}
+	\(\omega=2\cdot\omega_{nom}=120~degrees/s\). 
+\end{equation}
+
+
+The plot of the total normal force and its components for this case is shown in figure~\ref{fig:Ndubbelw}. The external force and the spring force are independent from the angular velocity and are thus unchanged. The inertial force however ("acc" in figure~\ref{fig:Ndubbelw}), do change. This force is given by~\cite{cursus}:
+
+\begin{equation}
+	\begin{split}
+	F_{inertial} &= m\cdot a \\
+	&=m\cdot\left(\frac{L}{\beta^2}\cdot\omega^2\cdot s''(\tau)\right)
+	\end{split}
+\end{equation}
+
+This means that this force is proportional to the square of the angular velocity. When the velocity is doubled, the inertial force will be multiplied by four.
+
+The total normal force is still greater than zero for all cam angles, so the spring does not need to be resized for this velocity.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.7\textwidth]{Ndubbelw.png}
+	\caption{Normal force between cam and follower in function of the cam angle for a follower with spring with \(k=7~N/m\) and \(F_{v0}=230~N\) at \(\omega=2\cdot\omega_{nom}\).}
+	\label{fig:Ndubbelw}
+\end{figure}
+
 
 \subsection{Instantaneous power}
 \label{sec:power}
@@ -397,9 +465,19 @@ Because the power is positive, the cam has to be driven by a motor. When the mot
 
 where \(\alpha\) is the angular acceleration of the cam when the motor is starting up. 
 
-When using an electric motor, the current will peak during startup. This has to be avoided because it can damage the motor and can cause troubles in the local electric grid. To solve this problem, an upstream transformer is placed in the motor that reduces the voltage during startup and is then detached during the working regime \cite{eea}.
+When using an electric motor, the current will peak during startup. This has to be avoided because it can damage the motor and can cause troubles in the local electric grid. To solve this problem, an upstream transformer is placed in the motor that reduces the voltage during startup and is then detached during the working regime~\cite{energie}.
+
+
 
 \section{Dynamics of the follower}
+
+\subsection{Single-rise analysis}
+
+\subsection{Multi-rise analysis}
+
+\section*{Conclusion}
+
+We can conclude that
 
 \bibliographystyle{plain}
 \bibliography{nokken}

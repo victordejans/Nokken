@@ -6,9 +6,13 @@
 \contentsline {subsection}{\numberline {2.3}Excentricity \(e\)}{5}{subsection.2.3}
 \contentsline {section}{\numberline {3}Verifying the rigid body forces}{5}{section.3}
 \contentsline {subsection}{\numberline {3.1}Sizing the spring}{5}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Instantaneous power}{5}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Designing a flywheel}{7}{subsection.3.3}
-\contentsline {subsubsection}{\numberline {3.3.1}Exact calculation of the flywheel's dimensions}{10}{subsubsection.3.3.1}
-\contentsline {subsubsection}{\numberline {3.3.2}Estimate of the flywheel's dimensions}{10}{subsubsection.3.3.2}
-\contentsline {subsection}{\numberline {3.4}Startup of the motor}{12}{subsection.3.4}
-\contentsline {section}{\numberline {4}Dynamics of the follower}{12}{section.4}
+\contentsline {subsubsection}{\numberline {3.1.1}Spring with nominal driving velocity}{5}{subsubsection.3.1.1}
+\contentsline {subsubsection}{\numberline {3.1.2}Spring with deviating driving velocity}{7}{subsubsection.3.1.2}
+\contentsline {subsection}{\numberline {3.2}Instantaneous power}{10}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Designing a flywheel}{11}{subsection.3.3}
+\contentsline {subsubsection}{\numberline {3.3.1}Exact calculation of the flywheel's dimensions}{11}{subsubsection.3.3.1}
+\contentsline {subsubsection}{\numberline {3.3.2}Estimate of the flywheel's dimensions}{14}{subsubsection.3.3.2}
+\contentsline {subsection}{\numberline {3.4}Startup of the motor}{14}{subsection.3.4}
+\contentsline {section}{\numberline {4}Dynamics of the follower}{14}{section.4}
+\contentsline {subsection}{\numberline {4.1}Single-rise analysis}{14}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Multi-rise analysis}{14}{subsection.4.2}
