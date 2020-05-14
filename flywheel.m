@@ -9,36 +9,27 @@ omega = cam.w;
 S = cam.S*0.001;
 radians = cam.theta;
 degrees = cam.theta/pi*180;
-P = power_cam;
+[P,P_mean] = power_cam;
 t = size(degrees,2);
 
 %Instantaneous torque
 M_inst = P ./ omega;
 
 %Average torque
-M_av = sum(M_inst)/t;
-
-figure
-plot(degrees,M_inst)
-hold on
-yline(M_av)
-title("Instantaneous and average torque (Nm)")
-xlabel("Cam angle (degrees)")
-ylabel("Torque (Nm)")
+M_av = P_mean / omega;
 
 %Work surplus
 A = cumtrapz(radians,M_inst-M_av);
-figure
-plot(degrees,A)
-xlabel('Cam angle (degrees)');
-ylabel('Work surplus (J)');
 
 %Theta_min and theta_max
 [~,theta_min] = min(A); %index in theta array with minimal A
 [~,theta_max] = max(A); %index in theta array with maximal A
+.01*theta_min*pi/180 %print in radians
+.01*theta_max*pi/180 %print in radians
 
 %Maximal work surplus
 A_max = trapz(radians(theta_min:theta_max),M_inst(theta_min:theta_max)-M_av);
+A_max
 
 %Fluctuation coefficient
 omega_min = 0.95*omega;
@@ -49,7 +40,27 @@ K = (omega_max-omega_min)/omega;
 I = A_max/(K*omega^2);
 I
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    PLOT    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%Plot torques
+figure
+plot(degrees,M_inst)
+hold on
+yline(M_av,'r')
+hold on
+xline(.01*theta_min)
+hold on
+xline(.01*theta_max)
+title("Instantaneous and average torque (Nm)")
+xlabel("Cam angle (degrees)")
+ylabel("Torque (Nm)")
+
+%Plot work surplus
+figure
+plot(degrees,A)
+title("Instantaneous work surplus (J)")
+xlabel('Cam angle (degrees)');
+ylabel('Work surplus (J)');
 
 
 

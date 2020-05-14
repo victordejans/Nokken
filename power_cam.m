@@ -1,4 +1,4 @@
-function P = power_cam
+function [P,P_mean] = power_cam
 
 close all; clear;
 
@@ -31,34 +31,35 @@ close all; clear;
     P_withexc=N.*(cos(alpha).*e+sin(alpha).*sqrt(R.^2-e^2))*omega;
     
     %Mean power    
-    P_withexc_mean = sum(P_withexc)/size(P_withexc,2);
+    P_withexc_mean = sum(P_withexc)/size(P_withexc,2)
     
 %Plot
 
     %With and without exc    
-%     figure
-%     subplot(1,2,1)
-%     plot(cam1.theta*180/pi,P_withoutexc);
-%     hold on
-%     plot(cam1.theta*180/pi,P_withoutexc_mean*ones(size(cam1.theta)));
-%     title("Power with centric follower")
-%     xlabel('\theta (°)');
-%     ylabel('Power (W)');
-%     subplot(1,2,2)
-%     plot(cam1.theta*180/pi,P_withexc);
-%     hold on
-%     plot(cam1.theta*180/pi,P_withexc_mean*ones(size(cam1.theta)));
-%     title("Power with excentric follower")
-%     xlabel('\theta (°)');
-%     ylabel('Power (W)');
-%     
-%     %Difference
-%     figure
-%     plot(cam1.theta*180/pi,P_withexc-P_withoutexc);
-%     title("Difference in powers")
-%     xlabel('\theta (°)');
-%     ylabel('Power (W)');
+    figure
+    subplot(1,2,1)
+    plot(cam1.theta*180/pi,P_withoutexc);
+    hold on
+    plot(cam1.theta*180/pi,P_withoutexc_mean*ones(size(cam1.theta)));
+    title("Power with centric follower")
+    xlabel('\theta (°)');
+    ylabel('Power (W)');
+    subplot(1,2,2)
+    plot(cam1.theta*180/pi,P_withexc);
+    hold on
+    plot(cam1.theta*180/pi,P_withexc_mean*ones(size(cam1.theta)));
+    title("Power with excentric follower")
+    xlabel('\theta (°)');
+    ylabel('Power (W)');
+    
+    %Difference
+    figure
+    plot(cam1.theta*180/pi,P_withexc-P_withoutexc);
+    title("Difference in powers")
+    xlabel('\theta (°)');
+    ylabel('Power (W)');
     
 P = P_withexc;
+P_mean = P_withexc_mean;
 
 end

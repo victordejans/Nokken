@@ -83,7 +83,7 @@ When choosing the segments, one must take two things into account:
 \end{itemize}
 
 
-\begin{figure}[H]
+\begin{figure}
 	\centering
 	\includegraphics[width=.7\textwidth]{hefwet.png}
 	\caption{The motion law \(S(\theta)\) and its first and second derivatives in function of the cam angle \(\theta\). These plots were created with \texttt{matcam.m}}
@@ -135,7 +135,7 @@ The radiuses of the base circle of the cam and of the follower's roller must be 
 
 First, the pitch circle radius \(R_0\) is calculated. This is the sum of the base circle radius \(R_{base}\) and the follower radius \(R_r\), the two variables that need to be found in this subsection. 
 
-This can be done by looking at the pressure angle. This is the angle between the direction in which the follower translates and the normal on the cam's surface. It gives an indication of how the transmitted force between cam and follower is converted. When the pressure angle is small, most of this force will be used for the follower's motion. When the pressure angle is more right (\(\approx90\degree\), most of it will be converted in frictional forces. The latter case must of course be avoided. A good rule of thumb states that the pressure angle must never exceed 30 degrees:
+This can be done by looking at the pressure angle. This is the angle between the direction in which the follower translates and the normal on the cam's surface. It gives an indication of how the transmitted force between cam and follower is converted. When the pressure angle is small, most of this force will be used for the follower's motion. When the pressure angle is more right (\(\approx90\degree\)), most of it will be converted in frictional forces. The latter case must of course be avoided. A good rule of thumb states that the pressure angle may never exceed 30 degrees:
 
 \begin{equation}
 	\alpha_{max} < 30 \degree 
@@ -307,7 +307,9 @@ The horizontal lines in the plots in figure~\ref{fig:powerplot} represent the av
 
 \subsection{Designing a flywheel}
 
-This section treats the dimensioning of a flywheel that will keep speed variations in the cam shaft under control. The calculation of the moment of inertia of the flywheel is described in slides 15 to 22 of chapter 4 in the manual~\cite{cursus}.
+This section treats the dimensioning of a flywheel that will keep speed variations in the cam shaft under control. The exact calculation of the moment of inertia of the flywheel is done in the first subsubsection. It is based on the theory described in slides 15 to 22 of chapter 4 in the manual~\cite{cursus}. In a second subsubsection, the dimensions are estimated based on the plot of the torques.
+
+\subsubsection{Exact calculation of the flywheel's dimensions}
 
 First the instantaneous en average torque is calculated. This can easily be done by dividing the instantaneous and average power (that are already calculated in section~\ref{sec:power}) by the nominal angular velocity:
 \begin{subequations}
@@ -319,9 +321,83 @@ First the instantaneous en average torque is calculated. This can easily be done
 \end{equation}
 \end{subequations}
 
-TELT DIT EFFECTIEF OOK VOOR DE GEMIDDELDE M ?
+A plot of the torques in function of the cam angle is shown in figure~\ref{fig:torque}. 
 
-\subsection{Startup regime of the motor}
+The difference between the instantaneous and average torque causes the speed variations that the flywheel will suppress. By integrating this difference, the work surplus \(A(\theta)\) is found:
+
+\begin{equation}
+	A(\theta)=\int_{0}^{\theta}(M(\theta)-\overline{M})d\theta
+\end{equation}
+
+This \(A(\theta)\) is plotted in figure~\ref{fig:work}. By integrating it between the angle with minimal crank speed and the angle with maximal crank speed, the maximum work surplus is found:
+
+\begin{equation}
+	\begin{split}
+	A_{max}&=\int_{\theta_{min}}^{\theta_{max}}(M(\theta)-\overline{M})d\theta\\
+	&=\int_{0,24}^{1,73}(M(\theta)-1,20~Nm)d\theta\\
+	&=11,02~J
+	\end{split}
+	\label{eq:amax}
+\end{equation}
+
+This maximum work surplus is then used to calculate the moment of inertia as follows:
+
+\begin{equation}
+	I = \frac{A_{max}}{K\cdot\omega_{nom}^2}
+\end{equation}
+
+where K is the fluctuation coefficient which is defined as:
+
+\begin{equation}
+	K = \frac{\omega_{max}-\omega_{min}}{\omega_{nom}}
+\end{equation}
+
+These maximal and angular velocities are respectively \(0,95\cdot\omega_{nom}\) and \(1,05\cdot\omega_{nom}\), because of the tolerance which was defined in the assignment. After filling this all in, the moment of inertia is \(I=2,79~kg\cdot m^2\).
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.9\textwidth]{torque.png}
+	\caption{Instantaneous torque \(M(\theta)\) (blue) and average torque \(\overline{M}\) (red) in function of the cam angle. The vertical lines show where the angles with minimal (left) and maximal (right) crank speed.}
+	\label{fig:torque}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=.9\textwidth]{work.png}
+	\caption{Instantaneous work surplus \(A(\theta)\).}
+	\label{fig:work}
+\end{figure}
+
+HOE GROOT PRECIES???????
+
+\subsubsection{Estimate of the flywheel's dimensions}
+
+This calculation can also be estimated by looking at the plot of the torques in figure~\ref{fig:torque}. The \(A_{max}\) is then the area between the blue curve and the red line and between the left and right vertical lines. This can be estimated as the area of a triangle with a base of 80 or 90 degrees, or 1,5 radians, and a height of 13~Nm. The area (and also maximum work surplus) is then:
+\begin{equation}
+	A_{max}\approx\frac{1,5*13~Nm}{2}\approx 10~J
+\end{equation} 
+This is a good estimate for the 11,02~J from equation~\ref{eq:amax}. The moment of inertia of the flywheel can then be approximated as:
+\begin{equation}
+	\begin{split}
+	I &\approx\frac{10~J}{(\frac{1,05\cdot \omega_{nom}-0,95\cdot\omega_{nom}}{\omega_{nom}})\cdot\omega_{nom}^2}\\
+	 &\approx \frac{10~J}{0,10\cdot(2\pi~/s)^2}\\
+	 &\approx \frac{10~\frac{kg\cdot m^2}{s^2}}{0,10\cdot 6,3~/s \cdot 6,3~/s}\\
+	 &\approx \frac{100}{40}~kg\cdot m^2\\
+	 &\approx 2,5~kg\cdot m^2\\
+	\end{split}
+\end{equation}
+This is a good estimate for the exact calculation of the moment of inertia.
+
+\subsection{Startup of the motor}
+
+Because the power is positive, the cam has to be driven by a motor. When the motor is running, it has the specifications that are described in the previous subsections. When the motor is started up, the behaviour is different. The motor will need to perform an extra torque because of the inertia of the cam and the flywheel which are at rest. This extra torque is given by:
+
+\begin{equation}
+	M_{inertia} = I \cdot \alpha
+\end{equation}
+
+where \(\alpha\) is the angular acceleration of the cam when the motor is starting up. 
+
+When using an electric motor, the current will peak during startup. This has to be avoided because it can damage the motor and can cause troubles in the local electric grid. To solve this problem, an upstream transformer is placed in the motor that reduces the voltage during startup and is then detached during the working regime \cite{eea}.
 
 \section{Dynamics of the follower}
 
