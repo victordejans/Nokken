@@ -11,7 +11,7 @@ out2 = load('hefwet + geometrie.mat');
  zeta = 0.054;
  omega = out.w;
  
- lambda_min = 0.75/zeta  %lambda has to be greater than 13.8889
+ lambda_min = 0.75/zeta;  %lambda has to be greater than 13.8889
  lambda = 14;  % So we choose lambda to be 14
  
  % define the critical lift
@@ -23,14 +23,14 @@ out2 = load('hefwet + geometrie.mat');
  t_1 = (theta_end - theta_start)/omega;
  t_n = t_1/lambda;
  omega_n = 2*pi/t_n;
- k_f = ((omega_n)^2)*m  %result is a spring constant of about 2*10^6 N/mm
+ k_f = ((omega_n)^2)*m;  %result is a spring constant of about 2*10^6 N/mm
  
  
 %% Numerical single rise analysis
 
 T = 36000;  % 1 cycle consists of 36000 data points
 
-t_begin = T*theta_end/(2*pi)  % start of the 'vrije respons'
+t_begin = T*theta_end/(2*pi);  % start of the free response
 t_end = T*150/360;  % start of the next rise
 
 tau = out2.theta(1:t_end)/theta_end;
@@ -110,103 +110,118 @@ saveas(gcf,'SingleriseBenadering.png');
 %% Multi rise analysis
 lambda_multi = 1/t_n;  %We need a new lambda for multi rise analysis
 
+theta_equi_begin = 0;  % in degrees for ease of use
+theta_equi_end = 150;  % also in degrees
+cycles = 15;  % amount of cycles after which we certainly have achieved equilibrium
+t_multi_begin = theta_equi_begin*100 + 36000*cycles;
+t_multi_end = theta_equi_end*100 + 36000*cycles;
+
 numerator_multi = (2*pi*lambda_multi)^2;
 denominator_multi = [1, 2*zeta*(2*pi*lambda_multi), (2*pi*lambda_multi)^2];
 sys_multi = tf(numerator_multi, denominator_multi);
 
-tau_multi = out2.theta/(2*pi);  % normalized time over 1 whole cycle
-theta_multi= out2.S/35;  % normalzsed lift over 1 whole cycle
+tau_multi = linspace(0,25,36000*25);  % extended tau so we can also study steady-state
+theta_multi= repmat(out2.S,[1,25])./35;  % extended normalized lift for steady-state analysis
 gamma_multi= lsim(sys_multi,theta_multi,tau_multi)';
 
 figure('Name','Response gamma Multirise','Position', [100, 100, 500, 500])
 
 subplot(2,1,1)
-plot(tau_multi,theta_multi,'LineWidth',1);
+plot(tau_multi(t_multi_begin:t_multi_end),theta_multi(t_multi_begin:t_multi_end),'LineWidth',1);
 hold on
-plot(tau_multi,gamma_multi,'LineWidth',1);
+plot(tau_multi(t_multi_begin:t_multi_end),gamma_multi(t_multi_begin:t_multi_end),'LineWidth',1);
 title('Excitation and response')
 xlabel('cycle')
 ylabel('Dimensionless lift [-]')
+axis('tight');
 legend('\theta','\gamma')
 
 subplot(2,1,2)
-plot(tau_multi,gamma_multi - theta_multi,'LineWidth',1);
+plot(tau_multi(t_multi_begin:t_multi_end),gamma_multi(t_multi_begin:t_multi_end) - theta_multi(t_multi_begin:t_multi_end),'LineWidth',1);
 title('Difference of excitation and response')
 xlabel('cycle')
 ylabel('\gamma - \theta  [-]')
+axis('tight');
 saveas(gcf,'multirise.png');
 
-% 
-% %% vergelijken multirise - singlerise
-%  begin_angle = 140;
-%  end_angle = 250;
-%  multi_begin = 360*100*20+begin_angle*100;
-%  multi_end = 360*100*20+end_angle*100;
-%  gamma_norm = gamma(1:multi_end-multi_begin+1);
-% 
-% figure('Name','Vergelijking Single- en Multi-rise','Position', [100, 100, 500, 500])
-% subplot(2,1,1)
-% plot(tau_mr(multi_begin:multi_end),gamma_mr(multi_begin:multi_end),'LineWidth',1);
-% hold on
-% plot(tau_mr(multi_begin:multi_end),gamma_norm,'LineWidth',1);
-% title('Multi- en Single-rise')
-% xlabel('\tau [-]')
-% ylabel('Heffing [-]')
-% legend('multi-rise','single-rise')
-% axis tight;
-% subplot(2,1,2)
-% plot(tau_mr(multi_begin:multi_end), gamma_mr(multi_begin:multi_end)' - gamma_norm,'LineWidth',1)
-% title('Verschil Multi- en Single-rise')
-% xlabel('\tau [-]')
-% ylabel('\gamma_{multi} - \gamma_{single} [-]')
-% axis tight;
-% saveas(gcf,'vglmultirisesinglerise.png');
-% 
-%  begin_angle_new = 210;
-%  multi_begin_new = 360*100*20+begin_angle_new*100;
-%  multi_delta = multi_end - multi_begin;
-%  gamma_norm = gamma((begin_angle_new-begin_angle)/(end_angle-begin_angle)*multi_delta:multi_delta);
-% 
-% figure('Name','Vergelijking Single- en Multi-rise','Position', [100, 100, 500, 500])
-% subplot(2,1,1)
-% plot(tau_mr(multi_begin_new:multi_end),gamma_mr(multi_begin_new:multi_end),'LineWidth',1);
-% hold on
-% plot(tau_mr(multi_begin_new:multi_end),gamma_norm,'LineWidth',1);
-% title('Multi- en Single-rise: vrije respons')
-% xlabel('\tau [-]')
-% ylabel('Heffing [-]')
-% legend('multi-rise','single-rise')
-% axis tight;
-% subplot(2,1,2)
-% plot(tau_mr(multi_begin_new:multi_end), gamma_mr(multi_begin_new:multi_end)' - gamma_norm,'LineWidth',1)
-% title('Verschil Multi- en Single-rise: vrije respons')
-% xlabel('\tau [-]')
-% ylabel('\gamma_{m} - \gamma_{s} [-]')
-% axis tight;
-% saveas(gcf,'vglmultirisesinglerisevrijerespons.png');
-%  
-% %% nieuwe contactkracht
-% gamma_analyse=gamma_mr(855008:891007);
-% h=2*pi./length(gamma_analyse); % rad
-% S_mr=gamma_analyse.*40; %staat in mm
-% V_mr=gradient(S_mr,h); %mm/rad
-% A_mr=gradient(V_mr,h); %mm/rad^2
-% normalforce_spring = (out2.S*out2.springconstant+out2.springpreload)./cos(out2.pressure_angle);
-% normalforce_load = out2.extload./cos(out2.pressure_angle);                
-% normalforce_acc = out2.mass*A_mr./1000*(out2.w^2)./cos(out2.pressure_angle);
-% normalforce_tot = normalforce_spring + normalforce_load + normalforce_acc;
-% figure('Name', 'oud vs. new')
-% plot(out2.theta,normalforce_tot,'LineWidth',1)
-% hold on
-% plot(out2.theta,out2.normalforce_tot,'LineWidth',1)
-% %kleiner dan nul --> groter veertje
-% hold on
-% plot(out2.theta,zeros(size(out2.theta)))
-% xlabel('\theta [rad]')
-% ylabel('Normaalcontactkracht N [N]')
-% legend('Vervormbare volger','Onvervormbare volger')
-% xlim([0 2*pi])
-% ylim([-100 500])
-% saveas(gcf,'normaalkrachten.png');
-% 
-%  
+
+%% Comparing multirise to single rise
+
+% gamma_norm = gamma(1:multi_end-multi_begin+1);
+
+figure('Name','Comparing Single and Multi rise','Position', [100, 100, 500, 500])
+
+subplot(2,1,1)
+plot(tau_multi(t_multi_begin:t_multi_end),gamma_multi(t_multi_begin:t_multi_end),'LineWidth',1);
+hold on
+plot(tau_multi(t_multi_begin + 1:t_multi_end),gamma(1:t_end),'LineWidth',1);
+title('Multi and Single rise')
+xlabel('\tau [-]')
+ylabel('Dimensionless lift [-]')
+axis ('tight');
+legend('multi rise','single rise')
+
+
+subplot(2,1,2)
+plot(tau_multi(t_multi_begin + 1:t_multi_end), gamma_multi(t_multi_begin + 1:t_multi_end)' - gamma(1:t_end),'LineWidth',1)
+title('Difference of Multi and Single rise')
+xlabel('\tau [-]')
+ylabel('\gamma_{multi} - \gamma_{single} [-]')
+axis ('tight');
+saveas(gcf,'multirisesinglerisevergelijken.png');
+
+theta_deg_free_start = 100; % Angle in degrees for when free response approximately starts
+t_multi_free_begin = theta_deg_free_start*100 + 36000*cycles;
+
+figure('Name','Comparing Single and Multi rise free response','Position', [100, 100, 500, 500])
+
+subplot(2,1,1)
+plot(tau_multi(t_multi_free_begin:t_multi_end),gamma_multi(t_multi_free_begin:t_multi_end),'LineWidth',1);
+hold on
+plot(tau_multi(t_multi_free_begin:t_multi_end),gamma(t_begin:t_end),'LineWidth',1);
+title('Multi and Single rise free response')
+xlabel('\tau [-]')
+ylabel('Dimensionless lift [-]')
+axis ('tight');
+legend('multi-rise','single-rise')
+
+
+subplot(2,1,2)
+plot(tau_multi(t_multi_free_begin:t_multi_end), gamma_multi(t_multi_free_begin:t_multi_end)' - gamma(t_begin:t_end),'LineWidth',1)
+title('Difference in Mr and Sr free response')
+xlabel('\tau [-]')
+ylabel('\gamma_{m} - \gamma_{s} [-]')
+axis ('tight');
+saveas(gcf,'multirisesinglerisevrijeresponsvergelijken.png');
+ 
+%% Final contact force
+gamma_ref = gamma_multi(t_multi_begin + 1:t_multi_begin + 36000);  % reference gamma for our other properties
+theta_contact = 2*pi./length(gamma_ref); % artificial theta
+S_contact = gamma_ref.*35; %Accurate, actual displacement
+V_contact = gradient(S_contact,theta_contact); % actual speed
+A_contact = gradient(V_contact,theta_contact); % actual acceleration
+
+N_load = out2.extload./cos(out2.pressure_angle);   
+N_spring = (S_contact*out2.springconstant + out2.springpreload)./cos(out2.pressure_angle);             
+N_acc = (m*(A_contact./(10^6))*(omega^2))./cos(out2.pressure_angle);
+N = N_load + N_spring + N_acc;
+
+figure('Name', 'Final contact force')
+
+subplot(2,1,1)
+plot(out2.theta, N,'LineWidth',1)
+hold on
+plot(out2.theta, out2.normalforce_tot,'LineWidth',1)
+hold on
+xlabel('\theta [rad]')
+ylabel('Contact force N [N]')
+axis ([0 2*pi 0 800]);
+legend('N for deformable body','N for rigid body')
+
+subplot(2,1,2)
+plot(out2.theta, N - out2.normalforce_tot,'LineWidth',1)
+xlabel('\theta [rad]')
+ylabel('Difference in contact force N [N]')
+axis ('tight');
+
+saveas(gcf,'Contactkracht.png');
